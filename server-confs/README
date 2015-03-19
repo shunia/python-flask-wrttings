@@ -1,0 +1,8 @@
+nginx.conf: nginx config file for flask app
+supervisord.conf: general supervisord config file, this file need to include 'uwsgi_supervisord.conf'
+uwsgi_emperor.ini: uwsgi emperor config file, this file need to include the 'vassals' folder which contains 'uwsgi.ini'
+uwsgi_emperor_init.d.conf: useless for now, contains bash script to start up emperor service with init.d
+uwsgi_emperor.sh: actual commands to start up emperor service with specific configuration
+uwsgi_emperor_upstart.conf: useless for now, contains bash script to start up emperor service with upstart
+uwsgi.ini: this file actually acts as the 'writtings' app's uwsgi config file, it is specific for this app 
+uwsgi_supervisord.conf: supervisord 'program' config for the app 'writtings'
