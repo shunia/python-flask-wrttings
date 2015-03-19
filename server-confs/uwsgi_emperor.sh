@@ -1,4 +1,4 @@
-#!bin/sh
+#!bin/bash
 # UPATH=/usr/local/bin
 UPATH=/opt/dev/shunia/flask-apps/writtings/venv/bin
 UWSGI=$UPATH/uwsgi
