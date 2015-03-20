@@ -1,6 +1,6 @@
 基于Flask的web app,计划做成一个写作应用,既能支持简单的博客类写作需求,也能支持章节长文的写作需求.主要是因为没找到能支持后者需求的应用才进行尝试.
 选择Python,而不是选择更容易理解的nodejs,是因为对nodejs的部署毫无概念-虽然Python也并没有...
-选择Flask是因为看到这篇文章:https://www.airpair.com/python/posts/django-flask-pyramid的比较,另外之前也尝试过Django写"Hello World!",相对来讲觉得更能接受Flask的简洁一些.
+选择Flask是因为看到这篇文章: (https://www.airpair.com/python/posts/django-flask-pyramid) 的比较,另外之前也尝试过Django写"Hello World!",相对来讲觉得更能接受Flask的简洁一些.
 前端会选择AngularJS和JQuery.如有loader需求会考虑SeaJS.如有必要,也会引入Bootstrap.
 
 关于进度:
