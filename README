@@ -17,6 +17,3 @@
 3.大纲记录,修改以及提示功能 (必要,用以评估剧情进度等)
 4.全键盘操作和focus mode (可选)
 5.样式背景等 (可选)
-
-很有意义的说明:
-http://flask.pocoo.org/docs/0.10/becomingbig/#becomingbig
