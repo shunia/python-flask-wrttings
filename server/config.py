@@ -24,5 +24,6 @@ class conf_base(object):
 class conf_dev(conf_base):
     DEBUG = True
 
+
 class conf_prod(conf_base):
-    PORT = "8089"
+    PORT = 8089
