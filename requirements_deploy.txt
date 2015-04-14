@@ -1,0 +1,3 @@
+SQLAlchemy >= 0.9.8
+supervisor
+uwsgi >= 2.0
