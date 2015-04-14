@@ -1,23 +1,28 @@
 class config(object):
     def get_config(self, type):
         conf_name = type + "_conf"
-        return getattr(self, conf_name)()
+        conf_func = getattr(self, conf_name)
+        if callable(conf_func):
+            return conf_func()
+        else:
+            return None
 
-    def dev_conf():
-        return dev_conf
+    def dev_conf(self):
+        return conf_dev
 
-    def prod_conf():
-        return prod_conf
+    def prod_conf(self):
+        return conf_prod
 
-    class base_conf(object):
-        DEBUG = False
-        TESTING = False
-        DATABASE = "sqlite.db"
-        SERVER = "127.0.0.1"
-        PORT = "5000"
 
-    class dev_conf(base_conf):
-        DEBUG = True
+class conf_base(object):
+    DEBUG = False
+    TESTING = False
+    DATABASE = "sqlite.db"
+    SERVER = "127.0.0.1"
+    PORT = 5000
 
-    class prod_conf(base_conf):
-        PORT = "8089"
+class conf_dev(conf_base):
+    DEBUG = True
+
+class conf_prod(conf_base):
+    PORT = "8089"
