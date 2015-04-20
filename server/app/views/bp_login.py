@@ -1,7 +1,12 @@
-from flask import Blueprint
+from flask import Blueprint, render_template, redirect, request, make_response
+from .forms import LoginForm
 
 bp = Blueprint('login', __name__)
 
-@bp.route('/')
+@bp.route('/', methods=('GET', 'POST'))
 def login():
-    return "Login here"
+    form = LoginForm()
+    if request.method == "POST":
+        if form.validate_on_submit():
+            return redirect('/edit')
+    return render_template('login.html', form=form)

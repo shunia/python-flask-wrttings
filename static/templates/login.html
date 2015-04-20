@@ -1,0 +1,11 @@
+{% extends "header_footer_template.html" %}
+
+{% block hf_body %}
+    <form method="POST" action="/login/">
+        {{ form.hidden_tag() }}
+        {{ form.email.label }} {{ form.email(size=30) }}
+        {{ form.name.label }} {{ form.name(size=28) }}
+        {{ form.password.label }} {{ form.password(size=40) }}
+        <input type="submit" value="Login">
+    </form>
+{% endblock %}

@@ -1,5 +1,6 @@
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask_wtf.csrf import CsrfProtect
 from .views.bp_edit import bp as edit
 from .views.bp_index import bp as index
 from .views.bp_profile import bp as profile
@@ -8,6 +9,7 @@ from .views.bp_login import bp as login
 app = Flask('writtings', 
     static_folder='../static', 
     template_folder='../static/templates')
+CsrfProtect(app)
 db = SQLAlchemy()
 
 def set_config(conf):

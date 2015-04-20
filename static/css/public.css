@@ -5,3 +5,10 @@ h1 {
 p {
     font-family: Helvatica;
 }
+
+div.footer {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-right: -50%;
+}

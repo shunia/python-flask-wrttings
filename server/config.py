@@ -20,6 +20,7 @@ class conf_base(object):
     DATABASE = "sqlite.db"
     SERVER = "127.0.0.1"
     PORT = 5000
+    SECRET_KEY = "!87677kjnj%()0&2^91jkd)"
 
 class conf_dev(conf_base):
     DEBUG = True
