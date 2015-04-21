@@ -9,4 +9,4 @@ def login():
     if request.method == "POST":
         if form.validate_on_submit():
             return redirect('/edit')
-    return render_template('login.html', form=form)
+    return render_template('login.html', form=form, page_name='login')

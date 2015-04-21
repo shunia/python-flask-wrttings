@@ -1,11 +1,17 @@
 {% extends "header_footer_template.html" %}
-
+{% block hf_head %}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
 {% block hf_body %}
-    <form method="POST" action="/login/">
-        {{ form.hidden_tag() }}
-        {{ form.email.label }} {{ form.email(size=30) }}
-        {{ form.name.label }} {{ form.name(size=28) }}
-        {{ form.password.label }} {{ form.password(size=40) }}
-        <input type="submit" value="Login">
-    </form>
+	<div class="container">
+		<div class="row col-md-4 center-block">
+			<form class="form-vertical" method="POST" action="/login/">
+		        {{ form.hidden_tag() }}
+		        {{ form.email.label }} {{ form.email(size=30, class='form-control' ) }}
+		        {{ form.name.label }} {{ form.name(size=28, class='form-control') }}
+		        {{ form.password.label }} {{ form.password(size=40, class='form-control') }}
+		        <input class="btn btn-default" type="submit" value="Login">
+		    </form>
+		</div>
+	</div>
 {% endblock %}
