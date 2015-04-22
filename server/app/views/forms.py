@@ -5,6 +5,6 @@ from wtforms.fields import TextField, StringField, PasswordField
 from wtforms.validators import DataRequired
 
 class LoginForm(Form):
-    email = EmailField('email:', [validators.Required('Email address is required!')])
-    name = StringField('name:', [validators.Required('User name is required!')])
-    password = PasswordField('password:', [validators.Required('Password is required!')])
+    email = EmailField('Email:', [validators.Required('Email address is required!')])
+    name = StringField('Nickame:', [validators.Required('User name is required!')])
+    password = PasswordField('Password:', [validators.Required('Password is required!')])
