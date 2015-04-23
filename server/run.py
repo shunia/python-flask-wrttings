@@ -1,5 +1,5 @@
 #!venv/bin/python
-from app import set_config, app
+from app import set_config, run
 from config import config as __config_generator__, conf_dev, conf_prod
 
 """set enviroment here manually"""
@@ -16,4 +16,4 @@ if conf:
 """run"""
 if __name__ == "__main__":
     if conf:
-        app.run(conf.SERVER, conf.PORT)
+        run(conf.HOST, conf.PORT)

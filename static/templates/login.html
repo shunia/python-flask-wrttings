@@ -1,12 +1,12 @@
 {% extends "header_footer_template.html" %}
+{% from "_formhelpers.html" import render_field %}
 {% block hf_body %}
     <div class="modal-content col-md-2 col-md-offset-5">
         <div class="modal-body login-form">
             <form id="login_form" class="form" method="POST" action="/login/">
                 {{ form.hidden_tag() }}
-                {{ form.email.label }} {{ form.email(size=30, class='form-control form-validate-field' ) }}
-                {{ form.name.label }} {{ form.name(size=28, class='form-control form-validate-field') }}
-                {{ form.password.label }} {{ form.password(size=40, class='form-control form-validate-field') }}
+                {{ render_field(form.email) }}
+                {{ render_field(form.password) }}
                 <div class="login-btn-group text-right">
                     <a href="#"><span>Forget password?</span><a>
                     <button type="submit" class="btn btn-primary">Login</button>

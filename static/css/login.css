@@ -1,18 +1,6 @@
 /* overrides */
-.form-control {
-    margin-bottom: 5px;
-}
 
 /* custom */
-.login-form {
-    margin: 5px;
-}
-
-.login-text-bottom {
-    position: absolute;
-    bottom: 0;
-}
-
 .login-btn-group {
     margin-top: 15px;
 }

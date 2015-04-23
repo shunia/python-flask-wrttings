@@ -1,13 +1,28 @@
 define(['jquery', 'bootstrap'], function ($) {
 
     var registerd_validators = {
-        "email": email_validator, 
-        "password": password_validator, 
-        "text": text_validator
+        "email": {
+            "validator": email_validator, 
+            "helper": {
+                "errmsg": [
+                    "Empty content not allowed!", 
+                    "Invalid email address!"
+                ]
+            }
+        }, 
+        "password": {
+            "validator": password_validator, 
+            "helper": {}
+        }, 
+        "text": {
+            "validator": text_validator, 
+            "helper": {}
+        }
     };
     var emailRegex;
 
     $("#login_form").submit(function (e) {
+        return true;
         // iter every submit field for validation
         $(".form-validate-field").each(function (i, vfield) {
             if (!login_form_validation(vfield)) {
@@ -20,40 +35,44 @@ define(['jquery', 'bootstrap'], function ($) {
 
     function login_form_validation(vfield) {
         var type = $(vfield).attr('type'), 
-            validator = registerd_validators[type];
+            v = registerd_validators[type];
 
-        return validator && validator(vfield);
+        return v.validator && v.validator(vfield, v.helper);
     };
 
-    function email_validator(vfield) {
+    function email_validator(vfield, helper) {
         var size = $(vfield).attr('size'), 
             fvalue = $(vfield).val(), 
             valid = false, 
-            errtype = 0;
+            errtype = -1;
         
         if (size && fvalue && fvalue.length <= size) {
             if (!emailRegex) 
                 emailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
             valid = emailRegex.test(fvalue);
         } else {
-            errtype = 1;
+            errtype = 0;
         }
-
-        if (!valid) 
-            make_tooltip(vfield, "right", "Email error!")
+        
+        if (!valid) {
+            errtype = 1;
+            make_tooltip(vfield, "right", helper.errmsg[errtype]);
+        }
         return valid;
     }
 
-    function password_validator(vfield) {
+    function password_validator(vfield, helper) {
 
     }
 
-    function text_validator(vfield) {
+    function text_validator(vfield, helper) {
 
     }
 
     function make_tooltip(target, placement, title) {
+        $(target).addClass('has-warning');
         $(target).tooltip({
+            "container": "body", 
             "placement": placement, 
             "title": title
         });
