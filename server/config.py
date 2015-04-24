@@ -17,7 +17,7 @@ class config(object):
 class conf_base(object):
     DEBUG = False
     TESTING = False
-    DATABASE = "sqlite.db"
+    SQLALCHEMY_DATABASE_URI = "sqlite:////sqlite.db"
     HOST = "127.0.0.1"
     PORT = 5000
     SECRET_KEY = "!87677kjnj%()0&2^91jkd)"

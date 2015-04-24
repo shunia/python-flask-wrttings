@@ -1,11 +1,8 @@
 from flask import Flask, g, request
-from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.babel import Babel
+from flask.ext.sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CsrfProtect
-from .views.bp_edit import bp as edit
-from .views.bp_index import bp as index
-from .views.bp_profile import bp as profile
-from .views.bp_login import bp as login
+from .database import DB
 
 app = Flask('writtings', 
     static_folder='../static', 
@@ -32,5 +29,10 @@ def config_bp(app):
     app.register_blueprint(profile, url_prefix='/profile')
     app.register_blueprint(login, url_prefix='/login')
 
-def run(host, port)
+def run(host, port):
     app.run(host, port)
+
+from .views.bp_edit import bp as edit
+from .views.bp_index import bp as index
+from .views.bp_profile import bp as profile
+from .views.bp_login import bp as login
