@@ -13,7 +13,6 @@ class config(object):
     def prod_conf(self):
         return conf_prod
 
-
 class conf_base(object):
     DEBUG = False
     TESTING = False
@@ -31,7 +30,8 @@ class conf_base(object):
 
 class conf_dev(conf_base):
     DEBUG = True
-
+    SQLALCHEMY_DATABASE_URI = "mysql://root:7758258hqf@54.65.50.8/writtings_dev"
 
 class conf_prod(conf_base):
     PORT = 8089
+    SQLALCHEMY_DATABASE_URI = "mysql://root:7758258hqf@54.65.50.8/writtings"

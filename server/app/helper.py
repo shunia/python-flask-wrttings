@@ -1,27 +1,45 @@
-class session_helper(object):
-    from flask import current_app, g, request
-    from .database import conn_db, close_db
-    import app
+from app import app, babel
 
-    @babel.localeselector
-    def get_locale():
-        user = getattr(g, 'user', None)
-        if user is not None:
-            return user.locale
-        return request.accept_languages.best_match(app.config.LANGUAGES.keys())
+@babel.localeselector
+def get_locale():
+    from flask import g, request
+    from app import app
 
-    @babel.timezoneselector
-    def get_timezone():
-        user = getattr(g, 'user', None)
-        if user is not None:
-            return user.timezone
-        return app.config.TIME_ZONE[0]
+    user = getattr(g, 'user', None)
+    if user is not None:
+        return user.locale
+    print app.config
+    return request.accept_languages.best_match(app.config["LANGUAGES"].keys())
 
-    @current_app.before_request
-    def before_req():
-        conn_db()
+@babel.timezoneselector
+def get_timezone():
+    from flask import g
+    from app import app
 
-    @current_app.teardown_appcontext
-    def after_req(exception):
-        close_db()
+    user = getattr(g, 'user', None)
+    if user is not None:
+        return user.timezone
+    return app.config.TIME_ZONE[0]
 
+@app.before_request
+def before_req():
+    pass
+
+@app.teardown_appcontext
+def after_req(exception):
+    from flask import g
+
+    db = getattr(g, '_database', None)
+    if db is not None:
+        if exception is not None:
+            db.roll_back()
+        else:
+            db.session.commit()
+
+def user_logged_in():
+    from flask import session
+
+    if 'user_credential' in session:
+        return session['user_credential'];
+    else:
+        return None

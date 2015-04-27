@@ -1,6 +1,6 @@
 from flask import Blueprint
 
-bp = Blueprint('edit', __name__)
+bp = Blueprint('bp_edit', __name__)
 
 @bp.route('/')
 def edit():
