@@ -32,7 +32,7 @@ def config_bp(app):
 
     app.register_blueprint(index, url_prefix='')
     app.register_blueprint(edit, url_prefix='/edit')
-    app.register_blueprint(account, url_prefix='/login')
+    app.register_blueprint(account, url_prefix='/account')
 
 def run(host, port):
     app.run(host, port)

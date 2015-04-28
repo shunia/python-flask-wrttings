@@ -3,19 +3,18 @@
 {% block hf_body %}
     <div class="modal-content col-md-2 col-md-offset-5">
         <div class="modal-body login-form">
-            <form id="login_form" class="form" method="POST" action="./login">
+            <form id="register_form" class="form" method="POST" action="./register">
                 {{ form.hidden_tag() }}
                 {{ render_field(form.email) }}
                 {{ render_field(form.password) }}
+                {{ render_field(form.nickname) }}
                 {% if error %}
                     <ul class="alert-danger">
                         <li>{{ error }}</li>
                     </ul>
                 {% endif %}
                 <div class="login-btn-group text-right">
-                    <a href="#"><span>Forget password?</span></a>
-                    <button type="submit" class="btn btn-primary">Login</button>
-                    <button type="button" class="btn" onclick="window.location.href=('./register')">Reg</button>
+                    <button type="submit" class="btn btn-primary">Register</button>
                 </div>
             </form>
         </div>

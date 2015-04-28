@@ -1,8 +1,7 @@
 from app import db
+from werkzeug.security import generate_password_hash, check_password_hash
 
 class User(db.Model):
-    from werkzeug import generate_password_hash, check_password_hash
-    
     __tablename__ = 'db_writtings_user'
 
     ROLE_GUEST = 0
@@ -31,6 +30,8 @@ class User(db.Model):
         self.email = email
         self.set_password(password)
         self.role = role
+        self.sex = True
+        self.age = 18
 
     def set_password(self, password):
         if password is not None:

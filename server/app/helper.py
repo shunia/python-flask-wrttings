@@ -36,10 +36,12 @@ def after_req(exception):
         else:
             db.session.commit()
 
-def user_logged_in():
+def current_user(uid=None):
     from flask import session
 
-    if 'user_credential' in session:
+    if uid is not None and uid >= 0:
+        session['user_credential'] = uid
+    elif 'user_credential' in session:
         return session['user_credential'];
-    else:
-        return None
+    
+    return None

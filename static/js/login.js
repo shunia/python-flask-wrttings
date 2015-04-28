@@ -1,6 +1,6 @@
 define(['jquery', 'bootstrap'], function ($) {
 
-    var registerd_validators = {
+    var emailRegex, registerd_validators = {
         "email": {
             "validator": email_validator, 
             "helper": {
@@ -19,7 +19,6 @@ define(['jquery', 'bootstrap'], function ($) {
             "helper": {}
         }
     };
-    var emailRegex;
 
     $("#login_form").submit(function (e) {
         return true;
