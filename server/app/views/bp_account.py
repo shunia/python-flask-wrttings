@@ -75,7 +75,7 @@ def profile():
         ''' editing '''
         uid = form.id.data
         if uid is not None and form.validate_on_submit():   # basic validation
-            user = User.query.filter_by(id=uid).first()   # find user
+            user = User.query.filter_by(id=uid).first()     # find user
             if user is not None:                            # start update
                 user.nickname = form.nickname.data
                 user.age = form.age.data
