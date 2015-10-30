@@ -20,13 +20,8 @@ class conf_base(object):
     HOST = "127.0.0.1"
     PORT = 5000
     SECRET_KEY = "!87677kjnj%()0&2^91jkd)"
-    BABEL_DEFAULT_LOCALE = "zh_CN"
-    BABEL_DEFAULT_TIMEZONE = "UTC"
-    LANGUAGES = {
-        'en_US': 'English', 
-        'zh_CN': 'Chinese'
-    }
     TIME_ZONE = ['UTC']
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 class conf_dev(conf_base):
     DEBUG = True

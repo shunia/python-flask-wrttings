@@ -11,6 +11,7 @@ def init(env):
     """if it exists,set config to trigger initialization of 
        flask app and everything else"""
     if conf:
+        print(conf)
         set_config(conf)
     return conf
 

@@ -1,25 +1,4 @@
-from app import app, babel
-
-@babel.localeselector
-def get_locale():
-    from flask import g, request
-    from app import app
-
-    user = getattr(g, 'user', None)
-    if user is not None:
-        return user.locale
-    print app.config
-    return request.accept_languages.best_match(app.config["LANGUAGES"].keys())
-
-@babel.timezoneselector
-def get_timezone():
-    from flask import g
-    from app import app
-
-    user = getattr(g, 'user', None)
-    if user is not None:
-        return user.timezone
-    return app.config.TIME_ZONE[0]
+from app import app
 
 @app.before_request
 def before_req():

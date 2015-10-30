@@ -1,5 +1,4 @@
 from flask import Flask, g, request
-from flask.ext.babel import Babel
 from flask_wtf.csrf import CsrfProtect
 from .database import init_db
 
@@ -20,8 +19,6 @@ def init(conf):
         app.config.from_object(conf)
         ''' csrf protection for user login '''
         CsrfProtect(app)
-        ''' i18n support '''
-        babel = Babel(app)
         ''' init db '''
         db = init_db(app)
 
