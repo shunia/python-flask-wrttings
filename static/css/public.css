@@ -1,6 +1,13 @@
-h1 {
-    color: #ff00ff;
-    font-size: 32px;
+h2 {
+  color: black;
+  font-size: 32px;
+}
+
+/**
+* 统一去掉下划线
+**/
+a:hover {
+  text-decoration: none;
 }
 
 .footer {

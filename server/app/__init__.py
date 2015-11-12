@@ -2,8 +2,8 @@ from flask import Flask, g, request
 from flask_wtf.csrf import CsrfProtect
 from .database import init_db
 
-app = Flask('writtings', 
-    static_folder='../static', 
+app = Flask('writtings',
+    static_folder='../static',
     template_folder='../static/templates')
 babel = None
 db = None

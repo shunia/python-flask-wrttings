@@ -1,5 +1,12 @@
 {% extends "header_footer_template.html" %}
-{% block hf_head %}
-{% endblock hf_head %}
-{% block hf_body %}
-{% endblock hf_body %}
+{% block header %}
+  {{ super() }}
+  <div class="login-btn-group">
+    <button type="button" class="btn">
+      <a href="/account">SIGN IN</a>
+    </button>
+    <button type="button" class="btn">
+      <a href="/account/register">SIGN UP</a>
+    </button>
+  </div>
+{% endblock %}

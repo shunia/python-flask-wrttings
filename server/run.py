@@ -8,16 +8,15 @@ def init(env):
     conf_gen = __config_generator__()
     """get current detailed config of this app"""
     conf = conf_gen.get_config(type=env)
-    """if it exists,set config to trigger initialization of 
+    """if it exists,set config to trigger initialization of
        flask app and everything else"""
     if conf:
-        print(conf)
         set_config(conf)
     return conf
 
 def startup():
     from app import app
-    
+
     app.run(app.config["HOST"], app.config["PORT"])
 
 import sys
