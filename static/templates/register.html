@@ -1,22 +1,24 @@
-{% extends "header_footer_template.html" %}
+{% extends "common.html" %}
 {% from "_formhelpers.html" import render_field %}
-{% block hf_body %}
-    <div class="modal-content col-md-2 col-md-offset-5">
-        <div class="modal-body login-form">
-            <form id="register_form" class="form" method="POST" action="./register">
-                {{ form.hidden_tag() }}
-                {{ render_field(form.email) }}
-                {{ render_field(form.password) }}
-                {{ render_field(form.nickname) }}
-                {% if error %}
-                    <ul class="alert-danger">
-                        <li>{{ error }}</li>
-                    </ul>
-                {% endif %}
-                <div class="login-btn-group text-right">
-                    <button type="submit" class="btn btn-primary">Register</button>
-                </div>
-            </form>
+{% block body %}
+<div class="container">
+  <div class="modal-content col-xs-6 col-md-4 col-xs-offset-3 col-md-offset-4">
+    <div class="modal-body login-form">
+      <form id="register_form" class="form" method="POST" action="./register">
+        {{ form.hidden_tag() }}
+        {{ render_field(form.email) }}
+        {{ render_field(form.nickname) }}
+        {{ render_field(form.password) }}
+        {% if error %}
+          <ul class="alert-danger">
+            <li>{{ error }}</li>
+          </ul>
+        {% endif %}
+        <div class="login-btn-group text-right">
+          <button type="submit" class="btn btn-primary">Register</button>
         </div>
+      </form>
     </div>
+  </div>
+</div>
 {% endblock %}

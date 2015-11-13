@@ -1,6 +1,33 @@
-h2 {
-  color: black;
-  font-size: 32px;
+body {
+  font-family: "Helvetica Neue", Helvetica, "Microsoft YaHei";
+}
+
+.header {
+  padding-top: 10px;
+}
+
+.header-title {
+  display: inline;
+  overflow: hidden;
+  float: left;
+  margin-left: 3%;
+  font-size: 28px;
+}
+
+.header-login {
+  display: inline;
+  overflow: hidden;
+  float: right;
+  margin-right: 3%;
+  font-size: 28px;
+}
+
+.header-user-info {
+  display: none;
+}
+
+.header-title:hover {
+  color: rgba(0, 0, 0, 0.7);
 }
 
 /**
@@ -33,8 +60,4 @@ a:hover {
 .padding-vertical {
     padding-top: 3px;
     padding-bottom: 3px;
-}
-
-.login-btn-group {
-    margin-top: 15px;
 }

@@ -29,14 +29,17 @@ if __name__ == "__main__":
         for arg in sys.argv:
             if arg.startswith('env='):
                 init(arg[4:])
+            else:
+                init("dev")
             if arg == "run":
                 startup()
             elif arg == "createdb":
-                from app import db
                 from app.models import model
+                from app import db
 
                 db.create_all()
             elif arg == "dropdb":
+                from app.models import model
                 from app import db
 
                 db.drop_all()

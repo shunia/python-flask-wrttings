@@ -16,7 +16,7 @@ class config(object):
 class conf_base(object):
     DEBUG = False
     TESTING = False
-    SQLALCHEMY_DATABASE_URI = "sqlite:////sqlite.db"
+    SQLALCHEMY_DATABASE_URI = "sqlite:///sqlite.db"
     HOST = "127.0.0.1"
     PORT = 5000
     SECRET_KEY = "!87677kjnj%()0&2^91jkd)"
@@ -25,7 +25,7 @@ class conf_base(object):
 
 class conf_dev(conf_base):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = "mysql://root:7758258hqf@54.65.50.8/writtings_dev"
+    SQLALCHEMY_DATABASE_URI = "sqlite:///writtings_dev.db"
 
 class conf_prod(conf_base):
     PORT = 8089

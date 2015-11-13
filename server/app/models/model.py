@@ -2,7 +2,7 @@ from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
 
 class User(db.Model):
-    __tablename__ = 'db_writtings_user'
+    __tablename__ = 'writtings_user'
 
     ROLE_GUEST = 0
     ROLE_REGISTERD = 1
@@ -43,7 +43,7 @@ class User(db.Model):
 import datetime
 
 class content(db.Model):
-    __tablename__ = "db_writtings_user_content"
+    __tablename__ = "writtings_user_content"
 
     id = db.Column(db.Integer, primary_key=True)
 
@@ -56,7 +56,7 @@ class content(db.Model):
         self.authorid = authorid
 
 class chapter(db.Model):
-    __tablename__ = "db_writtings_chapter"
+    __tablename__ = "writtings_chapter"
 
     id = db.Column(db.Integer, primary_key=True)
     allversions = db.Column(db.Text)
@@ -71,7 +71,7 @@ class chapter(db.Model):
         self.allversions = self.allversions
 
 class chapter_content(db.Model):
-    __tablename__ = "db_writtings_chapter_content"
+    __tablename__ = "writtings_chapter_content"
 
     id = db.Column(db.Integer, primary_key=True)
     cid = db.Column(db.Integer)

@@ -1,12 +1,12 @@
 from flask import Flask, g, request
 from flask_wtf.csrf import CsrfProtect
-from .database import init_db
+from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask('writtings',
     static_folder='../static',
     template_folder='../static/templates')
 babel = None
-db = None
+db = SQLAlchemy(app)
 
 def set_config(conf):
     init(conf)
@@ -19,8 +19,6 @@ def init(conf):
         app.config.from_object(conf)
         ''' csrf protection for user login '''
         CsrfProtect(app)
-        ''' init db '''
-        db = init_db(app)
 
 def config_bp(app):
     from .views.bp_edit import bp as edit

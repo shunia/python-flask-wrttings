@@ -1,4 +1,5 @@
-from flask import (Blueprint, render_template, redirect, 
+# coding=utf8
+from flask import (Blueprint, render_template, redirect,
                     request, make_response, g, url_for)
 from app import db
 from ..models.model import User
@@ -34,10 +35,10 @@ def register():
 def user_register_validate(email, nickname):
     user = User.query.filter_by(email=email).first()
     if user is not None:
-        return u'Email address already in use'
+        return u'邮件地址已经被使用'
     user = User.query.filter_by(nickname=nickname).first()
     if user is not None:
-        return u'Nickname already taken'
+        return u'昵称已经被使用'
     return None
 
 @bp.route('/login', methods=('GET', 'POST'))
@@ -57,7 +58,7 @@ def user_login_validate(email, password):
     error = None
     user = User.query.filter_by(email=email).first()
     if user is None or not user.check_password(password):
-        error = 'Wrong password or email address'
+        error = u'错误的用户名或密码'
     return error, user
 
 @bp.route('/profile', methods=('GET', 'POST'))
@@ -65,7 +66,7 @@ def profile():
     form = ProfileForm()
     user = None
     uid = current_user()
-    
+
     if request.method == 'GET':
         if uid is not None:
             user = User.query.filter_by(id=uid).first_or_404()
@@ -81,5 +82,5 @@ def profile():
                 user.age = form.age.data
                 user.email = form.email.data
                 db.session.commit()
-                flush(u'User profile saved!')               # updated and message flushed
+                flush(u'资料已保存!')               # updated and message flushed
     return render_template('profile.html', form=form, page_name='profile', user=user)       # render
