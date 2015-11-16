@@ -1,13 +1,19 @@
-<div class="header-elm header-login">
-  <a class="btn btn-default" href="/account">
-    登陆
-  </a>
-  <a class="btn btn-default" href="/account/register">
-    注册
-  </a>
-</div>
-<div class="header-elm header-user-info">
-  <a class="btn btn-default" href="/account">
-    {{ user.nickname }}
-  </a>
-</div>
+{% if user %}
+  <div class="header-elm header-user-info">
+    <a class="btn" href="/account">
+      {{ user.nickname }}
+    </a>
+      <a class="btn btn-default" href="/account/signout">
+        登出
+      </a>
+  </div>
+{% else %}
+  <div class="header-elm header-login">
+    <a class="btn btn-default" href="/account">
+      登陆
+    </a>
+    <a class="btn btn-default" href="/account/register">
+      注册
+    </a>
+  </div>
+{% endif %}

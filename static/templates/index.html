@@ -1,11 +1,4 @@
 {% extends "common.html" %}
 {% block header %}
-<div class="header-elm header-login">
-  <a class="btn btn-default" href="/account">
-    登陆
-  </a>
-  <a class="btn btn-default" href="/account/register">
-    注册
-  </a>
-</div>
+  {% include "header_user_info.html" %}
 {% endblock %}

@@ -61,6 +61,16 @@ def user_login_validate(email, password):
         error = u'错误的用户名或密码'
     return error, user
 
+@bp.route('/signout')
+def signout():
+    uid = current_user()
+    success = sign_out(uid)
+
+    if success == True:
+        print('用户成功登出: %s' % uid)
+
+    return redirect(url_for('bp_index.index'))
+
 @bp.route('/profile', methods=('GET', 'POST'))
 def profile():
     form = ProfileForm()
@@ -84,3 +94,7 @@ def profile():
                 db.session.commit()
                 flush(u'资料已保存!')               # updated and message flushed
     return render_template('profile.html', form=form, page_name='profile', user=user)       # render
+
+@bp.route('/resetpwd')
+def resetpwd():
+    return render_template('page_not_found.html')

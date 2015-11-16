@@ -2,8 +2,10 @@ body {
   font-family: "Helvetica Neue", Helvetica, "Microsoft YaHei";
 }
 
-.header {
-  padding-top: 10px;
+.body-main:before {
+  content: " ";
+  display: block;
+  padding-top: 50px;
 }
 
 .header-title {
@@ -12,6 +14,7 @@ body {
   float: left;
   margin-left: 3%;
   font-size: 28px;
+  padding-top: 5px;
 }
 
 .header-login {
@@ -23,11 +26,20 @@ body {
 }
 
 .header-user-info {
-  display: none;
+  display: inline;
+  overflow: hidden;
+  float: right;
+  margin-right: 3%;
+  font-size: 28px;
 }
 
 .header-title:hover {
   color: rgba(0, 0, 0, 0.7);
+}
+
+.form-content {
+  width: 380px;
+  margin: 0 auto;
 }
 
 /**
