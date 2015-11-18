@@ -14,7 +14,6 @@ class User(db.Model):
     email = db.Column(db.String(100), unique=True)
     nickname = db.Column(db.String(40), unique=True)
     passhash = db.Column(db.String(40))
-    salt = db.Column(db.String(16))
     ''' profile values '''
     name = db.Column(db.String(40))
     age = db.Column(db.Integer)
@@ -35,7 +34,7 @@ class User(db.Model):
 
     def set_password(self, password):
         if password is not None:
-            self.password = generate_password_hash(password)
+            self.passhash = generate_password_hash(password)
 
     def check_password(self, password):
         return check_password_hash(self.passhash, password)

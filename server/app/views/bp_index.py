@@ -8,11 +8,9 @@ bp = Blueprint('bp_index', __name__)
 @bp.route('/index')
 def index():
     user = None
-    uid = current_user()
 
     if request.method == 'GET':
-        if uid is not None:
-            user = User.query.filter_by(id=uid).first_or_404()
+        user = current_user_data()
     ''' <pre>page_name</pre> is for the property \
     	<pre>data-main</pre> required by requirejs,\
     	it should be the name of a specific js file,\

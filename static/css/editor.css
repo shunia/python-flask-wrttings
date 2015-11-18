@@ -1,0 +1,26 @@
+html, body {
+  height: 100%;
+  bottom: 0px;
+}
+
+.editor-user-input {
+  _height: 100px;
+  min-height: 100px;
+  *+height: 100%;
+  width: 90%;
+  border: 1px solid #FFF;
+  margin: 0px auto;
+  bottom: 10px;
+}
+
+.body-main:after {
+  content: " ";
+  display: block;
+  bottom: 0px;
+}
+
+.container:after {
+  content: " ";
+  display: block;
+  bottom: 0px;
+}

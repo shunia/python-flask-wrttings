@@ -51,10 +51,11 @@ def login():
             error, user = user_login_validate(form.email.data, form.password.data)
             if error is None and user is not None:
                 current_user(user.id)                       # save user id into session
-                return redirect(url_for('bp_edit.edit'))
+                return redirect(url_for('bp_editor.editor'))
     return render_template('login.html', form=form, page_name='login', error=error)
 
 def user_login_validate(email, password):
+    print 'login user %s %s' % (email,password)
     error = None
     user = User.query.filter_by(email=email).first()
     if user is None or not user.check_password(password):
@@ -95,6 +96,6 @@ def profile():
                 flush(u'资料已保存!')               # updated and message flushed
     return render_template('profile.html', form=form, page_name='profile', user=user)       # render
 
-@bp.route('/resetpwd')
-def resetpwd():
-    return render_template('page_not_found.html')
+# @bp.route('/resetpwd')
+# def resetpwd():
+#     return 404

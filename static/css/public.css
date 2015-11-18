@@ -8,26 +8,43 @@ body {
   padding-top: 50px;
 }
 
-.header-title {
-  display: inline;
+.header-main {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 1.75em;
+}
+
+.header-elm {
+  display: inline-block;
   overflow: hidden;
+}
+
+.header-title {
   float: left;
   margin-left: 3%;
   font-size: 28px;
   padding-top: 5px;
 }
 
-.header-login {
-  display: inline;
+.header-tools {
+  float: right;
+  font-size: 20px;
+  margin-right: 3%;
+}
+
+.header-tools-child {
+  display: inline-block;
   overflow: hidden;
+  margin-left: 30px;
+}
+
+.header-login {
   float: right;
   margin-right: 3%;
   font-size: 28px;
 }
 
 .header-user-info {
-  display: inline;
-  overflow: hidden;
   float: right;
   margin-right: 3%;
   font-size: 28px;

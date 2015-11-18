@@ -10,8 +10,10 @@
   </div>
 {% endmacro %}
 {% block body %}
+<div class="form-content">
   <form id="profile_form" class="form">
-    {{ render_field("昵称", user.nickname) }}
-    {{ render_field("邮箱", user.email) }}
+    {{ render_field("昵称:", user.nickname) }}
+    {{ render_field("邮箱:", user.email) }}
   </form>
+</div>
 {% endblock %}

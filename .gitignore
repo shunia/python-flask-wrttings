@@ -58,3 +58,6 @@ target/
 
 # venv
 venv/
+
+# exclude files
+writtings_dev.db

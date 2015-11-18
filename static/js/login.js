@@ -2,20 +2,20 @@ define(['jquery', 'bootstrap'], function ($) {
 
     var emailRegex, registerd_validators = {
         "email": {
-            "validator": email_validator, 
+            "validator": email_validator,
             "helper": {
                 "errmsg": [
-                    "Empty content not allowed!", 
+                    "Empty content not allowed!",
                     "Invalid email address!"
                 ]
             }
-        }, 
+        },
         "password": {
-            "validator": password_validator, 
+            "validator": password_validator,
             "helper": {}
-        }, 
+        },
         "text": {
-            "validator": text_validator, 
+            "validator": text_validator,
             "helper": {}
         }
     };
@@ -33,26 +33,26 @@ define(['jquery', 'bootstrap'], function ($) {
     });
 
     function login_form_validation(vfield) {
-        var type = $(vfield).attr('type'), 
+        var type = $(vfield).attr('type'),
             v = registerd_validators[type];
 
         return v.validator && v.validator(vfield, v.helper);
     };
 
     function email_validator(vfield, helper) {
-        var size = $(vfield).attr('size'), 
-            fvalue = $(vfield).val(), 
-            valid = false, 
+        var size = $(vfield).attr('size'),
+            fvalue = $(vfield).val(),
+            valid = false,
             errtype = -1;
-        
+
         if (size && fvalue && fvalue.length <= size) {
-            if (!emailRegex) 
+            if (!emailRegex)
                 emailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
             valid = emailRegex.test(fvalue);
         } else {
             errtype = 0;
         }
-        
+
         if (!valid) {
             errtype = 1;
             make_tooltip(vfield, "right", helper.errmsg[errtype]);
@@ -71,8 +71,8 @@ define(['jquery', 'bootstrap'], function ($) {
     function make_tooltip(target, placement, title) {
         $(target).addClass('has-warning');
         $(target).tooltip({
-            "container": "body", 
-            "placement": placement, 
+            "container": "body",
+            "placement": placement,
             "title": title
         });
         $(target).tooltip('show');

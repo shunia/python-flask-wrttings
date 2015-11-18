@@ -21,12 +21,12 @@ def init(conf):
         CsrfProtect(app)
 
 def config_bp(app):
-    from .views.bp_edit import bp as edit
-    from .views.bp_index import bp as index
-    from .views.bp_account import bp as account
+    from app.views.bp_editor import bp as editor
+    from app.views.bp_index import bp as index
+    from app.views.bp_account import bp as account
 
     app.register_blueprint(index, url_prefix='')
-    app.register_blueprint(edit, url_prefix='/edit')
+    app.register_blueprint(editor, url_prefix='/editor')
     app.register_blueprint(account, url_prefix='/account')
 
 def run(host, port):
