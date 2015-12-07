@@ -1,4 +1,4 @@
-define(['jquery'], function ($) {
+define(['jquery', 'cledit'], function ($, cledit) {
 
     var elm = $(".editor-user-input");
     if (elm) {

@@ -1,7 +1,11 @@
-{% extends "common.html" %}
+{% extends "components/common.html" %}
 {% block body %}
-<div class="editor-user-input" contenteditable="true">
-  
+<!--<div class="editor-user-input" contenteditable="true"></div>-->
+<div class="scroller">
+	<pre class="content">
+		# basic
+		'''install'''
+	</pre>
 </div>
-
+<script src="{{ url_for('static', filename='js/libs/mdGrammar.js') }}"></script>
 {% endblock %}

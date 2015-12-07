@@ -11,7 +11,7 @@ bp = Blueprint('bp_account', __name__)
 @bp.route('/')
 def index():
     if current_user() is not None:
-        return redirect(url_for('bp_account.profile'))
+        return redirect(url_for('bp_user.home'))
     else:
         return redirect(url_for('bp_account.login'))
 
@@ -29,8 +29,8 @@ def register():
                 db.session.add(user)
                 db.session.commit()
                 current_user(user.id)                       # save user id into session
-                return redirect(url_for('bp_account.profile'))
-    return render_template('register.html', form=form, page_name='register', error=error)
+                return redirect(url_for('bp_user.profile'))
+    return render_template('account_register.html', form=form, page_name='register', error=error)
 
 def user_register_validate(email, nickname):
     user = User.query.filter_by(email=email).first()
@@ -52,7 +52,7 @@ def login():
             if error is None and user is not None:
                 current_user(user.id)                       # save user id into session
                 return redirect(url_for('bp_editor.editor'))
-    return render_template('login.html', form=form, page_name='login', error=error)
+    return render_template('account_login.html', form=form, page_name='login', error=error)
 
 def user_login_validate(email, password):
     print 'login user %s %s' % (email,password)
@@ -71,30 +71,6 @@ def signout():
         print('用户成功登出: %s' % uid)
 
     return redirect(url_for('bp_index.index'))
-
-@bp.route('/profile', methods=('GET', 'POST'))
-def profile():
-    form = ProfileForm()
-    user = None
-    uid = current_user()
-
-    if request.method == 'GET':
-        if uid is not None:
-            user = User.query.filter_by(id=uid).first_or_404()
-        else:
-            return redirect(url_for('bp_account.login'))
-    else:
-        ''' editing '''
-        uid = form.id.data
-        if uid is not None and form.validate_on_submit():   # basic validation
-            user = User.query.filter_by(id=uid).first()     # find user
-            if user is not None:                            # start update
-                user.nickname = form.nickname.data
-                user.age = form.age.data
-                user.email = form.email.data
-                db.session.commit()
-                flush(u'资料已保存!')               # updated and message flushed
-    return render_template('profile.html', form=form, page_name='profile', user=user)       # render
 
 # @bp.route('/resetpwd')
 # def resetpwd():

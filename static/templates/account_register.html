@@ -1,0 +1,22 @@
+{% extends "components/common.html" %}
+{% from "components/_formhelpers.html" import render_field %}
+{% block body %}
+  <div class="modal-content form-content">
+    <div class="modal-body login-form">
+      <form id="register_form" class="form" method="POST" action="./register">
+        {{ form.hidden_tag() }}
+        {{ render_field(form.email) }}
+        {{ render_field(form.nickname) }}
+        {{ render_field(form.password) }}
+        {% if error %}
+          <ul class="alert-danger">
+            <li>{{ error }}</li>
+          </ul>
+        {% endif %}
+        <div class="login-btn-group text-right">
+          <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

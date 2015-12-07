@@ -5,13 +5,13 @@ body {
 .body-main:before {
   content: " ";
   display: block;
-  padding-top: 50px;
+  padding-top: 60px;
 }
 
 .header-main {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  line-height: 1.75em;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  line-height: 4em;
 }
 
 .header-elm {
@@ -22,19 +22,19 @@ body {
 .header-title {
   float: left;
   margin-left: 3%;
-  font-size: 28px;
+  font-size: 1.75em;
   padding-top: 5px;
 }
 
 .header-tools {
   float: right;
-  font-size: 20px;
   margin-right: 3%;
 }
 
 .header-tools-child {
   display: inline-block;
   overflow: hidden;
+  font-size: 2.75em;
   margin-left: 30px;
 }
 

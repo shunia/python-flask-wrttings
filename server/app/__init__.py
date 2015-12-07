@@ -24,10 +24,12 @@ def config_bp(app):
     from app.views.bp_editor import bp as editor
     from app.views.bp_index import bp as index
     from app.views.bp_account import bp as account
+    from app.views.bp_user import bp as user
 
     app.register_blueprint(index, url_prefix='')
     app.register_blueprint(editor, url_prefix='/editor')
     app.register_blueprint(account, url_prefix='/account')
+    app.register_blueprint(user, url_prefix='/user')
 
 def run(host, port):
     app.run(host, port)
